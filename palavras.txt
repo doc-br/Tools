@@ -8,3 +8,6 @@ voce
 ultimo
 dinamico
 dinamica
+servico
+especifico
+nao
