@@ -11,3 +11,5 @@ dinamica
 servico
 especifico
 nao
+maquina
+binario
