@@ -163,6 +163,12 @@
    CVSROOT=:ext:seulogin@cvs.doc-br.berlios.de:/cvsroot/doc-br
    export CVSROOT
 
+   Se usar uma C Shell (padrao no FreeBSD) coloque seu ~/.cshrc
+     
+   setenv CVS_RSH ssh
+   setenv CVSROOT :ext:seulogin@cvs.doc-br.berlios.de:/cvsroot/doc-br
+
+
                Uma vez definidas estas variáveis você ja pdoerá acessar o
    servidor de CVS, sugerimos que adote a seguinte metodologia de
    trabalho:
