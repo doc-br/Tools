@@ -23,24 +23,34 @@ if (!$ARGV[0]) {
 open(FILE,$ARGV[0]) or die "Nao foi possivel abrir o arquivo $ARGV[0].\n";
 $cont = 0;
 $lc = 0;
+$ok = 1;
 while ($linha = <FILE>) {
   $lc++;
+
+  $ok = 0 if ($linha =~ /<pre>/);
+
   $linha =~ s/(\n|\r)//g;
-  $linha_old = $linha;
-  $linha =~ s/<para>\ +/<para>/g;
-  $linha =~ s/\ +<\/para>/<\/para>/g;
-  $linha =~ s/^\ +$//g;
-  $linha =~ s/\ +$//g;
-  $linha =~ s/\ {8}/\t/g;
-  $linha =~ s/(\.|\?|\!) (\w)/\1  \2/g;
-  $linha =~ s/(\w)  (\w|&|%)/\1 \2/g;
-  print $linha . "\n";
-  $linha_cont = $linha;
-  $linha_cont =~ s/\t/        /g;
-  if (length($linha_cont) > 70) {
-    print STDERR "ATENCAO: A linha $lc tem mais de 70 colunas tem " . length($linha_cont) . " colunas\n";
-  } 
-  $cont++ if ($linha ne $linha_old);
+  if ($ok == 1) {
+    $linha_old = $linha;
+    $linha =~ s/<para>\ +/<para>/g;
+    $linha =~ s/\ +<\/para>/<\/para>/g;
+    $linha =~ s/^\ +$//g;
+    $linha =~ s/\ +$//g;
+    $linha =~ s/\ {8}/\t/g;
+    $linha =~ s/(\.|\?|\!) (\w)/\1  \2/g;
+    $linha =~ s/(\w)  (\w|&|%)/\1 \2/g;
+    print $linha . "\n";
+    $linha_cont = $linha;
+    $linha_cont =~ s/\t/        /g;
+    if (length($linha_cont) > 70) {
+      print STDERR "ATENCAO: A linha $lc tem mais de 70 colunas tem " . length($linha_cont) . " colunas\n";
+    } 
+    $cont++ if ($linha ne $linha_old);
+  } else {
+    print $linha . "\n";
+    $ok = 1 if ($linha =~ /<\/pre>/);
+  }
+
 }
 print STDERR "\nTotal de $cont linha(s) alterada(s) no arquivo $ARGV[0]\n";
 close(FILE);
