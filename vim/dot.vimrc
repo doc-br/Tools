@@ -1,4 +1,4 @@
-" $FreeBSD: doc/share/examples/vim/gvimrc-sample,v 1.1 1999/11/15 19:41:09 nik Exp $
+" $Id$
 " An example for a gvimrc file.
 " The commands in this are executed when the GUI is started.
 " (based on the work done by Bram Moolenaar <Bram@vim.org>)
