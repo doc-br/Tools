@@ -13,3 +13,4 @@ especifico
 nao
 maquina
 binario
+atraves
