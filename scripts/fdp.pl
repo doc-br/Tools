@@ -27,7 +27,7 @@ $ok = 1;
 while ($linha = <FILE>) {
   $lc++;
 
-  $ok = 0 if ($linha =~ /<screen>/);
+  $ok = 0 if (($linha =~ /<screen>/) || ($linha =~ /<programlisting>/));
 
   $linha =~ s/(\n|\r)//g;
   if ($ok == 1) {
@@ -48,7 +48,7 @@ while ($linha = <FILE>) {
     $cont++ if ($linha ne $linha_old);
   } else {
     print $linha . "\n";
-    $ok = 1 if ($linha =~ /<\/screen>/);
+    $ok = 1 if (($linha =~ /<\/screen>/) || ($linha =~ /<\/programlisting>/));
   }
 
 }
