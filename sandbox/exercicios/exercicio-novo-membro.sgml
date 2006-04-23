@@ -5,20 +5,20 @@
 
 
 <html>
-  <head>         
-	<title>Exercicios do FreeBSD Doc Project</title>
+  <head>
+	<title>Exercícios do FreeBSD Doc Project</title>
   </head>
 
-  <body>        
-    <p>Este e' um teste, e a versao desse teste e &versao;.</p>
+  <body>
+    <p>Este é um teste, e a versão desse teste é &versao;.</p>
 
-    <p>Na versao &versao; encontraremos exemplos.</p>
+    <p>Na versão &versao; encontraremos exemplos.</p>
 
-	<!-- comentario o que interessa sao os dois hifens
+	<!-- comentario o que interessa sao os dois hafens
 		precedidos da exclamacao e os dois hifens finais
 		as tags < > sao meramente tags internas do sgml -->
 
-    <p align="right">Como este exemplo de alinhamento a direita.</p>
+    <p align="right">Como este exemplo de alinhamento à direita.</p>
     <p>Este documento foi criado por &author;.</p>
   </body>
 </html>
